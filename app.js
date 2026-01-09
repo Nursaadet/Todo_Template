@@ -15,6 +15,20 @@ app.use(express.json());
 
 // AsyncErrors to errorHandler:
 require("express-async-errors");
+/* ------------------------------------------------------- */
+// TEMPLATES:
+// $ npm i ejs
+// https://ejs.co/
+
+app.set('view engine', 'ejs')
+// Default template folder: ./views
+
+
+app.all('/', (req ,res) => {
+
+
+
+})
 
 /* ------------------------------------------------------- */
 // ROUTES:
