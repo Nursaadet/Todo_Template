@@ -15,9 +15,10 @@ module.exports = {
     //     error: false,
     //     result: data
     // })
+    // console.log(data)
 
     // View:
-    res.render("index");
+    res.render("index", { todos: data.rows, count: data.count });
   },
 
   // CRUD ->
