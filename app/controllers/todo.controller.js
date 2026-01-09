@@ -11,10 +11,13 @@ module.exports = {
     // const data = await Todo.findAll()
     const data = await Todo.findAndCountAll();
 
-    res.status(200).send({
-      error: false,
-      result: data,
-    });
+    // res.status(200).send({
+    //     error: false,
+    //     result: data
+    // })
+
+    // View:
+    res.render("index");
   },
 
   // CRUD ->

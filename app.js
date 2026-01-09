@@ -15,6 +15,7 @@ app.use(express.json());
 
 // AsyncErrors to errorHandler:
 require("express-async-errors");
+
 /* ------------------------------------------------------- */
 // TEMPLATES:
 // $ npm i ejs
@@ -22,12 +23,16 @@ require("express-async-errors");
 
 app.set("view engine", "ejs");
 // Default template folder: ./views
-// app.set('views', './public')
+ app.set('views', './public')
 
 app.all("/", (req, res) => {
   // ./views klasörü içindeki dosyayı çağır:
   // res.render('index.ejs')
-  res.render("index");
+  // res.render('index')
+  res.send(`
+        <p><a href="/view">Todo Template</a></p>    
+        <p><a href="/api">Todo RestAPI</a></p>    
+    `);
 });
 
 /* ------------------------------------------------------- */
@@ -36,6 +41,7 @@ app.all("/", (req, res) => {
 // Model, controller'da kullanılacağı için orada require edilmelidir.
 // const Todo = require('./app/models/todo.model')
 
+app.use("/view", require("./app/routes/todo.router"));
 app.use("/api", require("./app/routes/todo.router"));
 
 /* ------------------------------------------------------- */
