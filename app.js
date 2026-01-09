@@ -20,15 +20,15 @@ require("express-async-errors");
 // $ npm i ejs
 // https://ejs.co/
 
-app.set('view engine', 'ejs')
+app.set("view engine", "ejs");
 // Default template folder: ./views
+// app.set('views', './public')
 
-
-app.all('/', (req ,res) => {
-
-
-
-})
+app.all("/", (req, res) => {
+  // ./views klasörü içindeki dosyayı çağır:
+  // res.render('index.ejs')
+  res.render("index");
+});
 
 /* ------------------------------------------------------- */
 // ROUTES:
@@ -36,7 +36,7 @@ app.all('/', (req ,res) => {
 // Model, controller'da kullanılacağı için orada require edilmelidir.
 // const Todo = require('./app/models/todo.model')
 
-app.use('/api', require('./app/routes/todo.router.api'))
+app.use("/api", require("./app/routes/todo.router"));
 
 /* ------------------------------------------------------- */
 // ErrorHandler:
