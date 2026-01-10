@@ -7,7 +7,7 @@
 const router = require('express').Router()
 
 // Controller:
-const todo = require('../controllers/todo.controller')
+const todo = require('../controllers/todo.controller.api')
 
 /* ------------------------------------------------------- */
 

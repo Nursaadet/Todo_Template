@@ -12,6 +12,8 @@ const PORT = process.env.PORT || 8000;
 /* ------------------------------------------------------- */
 // Accept json data and convert to object:
 app.use(express.json());
+// Accept form data and convert to object:
+app.use(express.urlencoded({ extended: true }));
 
 // AsyncErrors to errorHandler:
 require("express-async-errors");
@@ -23,7 +25,7 @@ require("express-async-errors");
 
 app.set("view engine", "ejs");
 // Default template folder: ./views
- app.set('views', './public')
+app.set("views", "./public");
 
 app.all("/", (req, res) => {
   // ./views klasörü içindeki dosyayı çağır:
@@ -41,8 +43,8 @@ app.all("/", (req, res) => {
 // Model, controller'da kullanılacağı için orada require edilmelidir.
 // const Todo = require('./app/models/todo.model')
 
-app.use("/view", require("./app/routes/todo.router"));
-app.use("/api", require("./app/routes/todo.router"));
+app.use("/view", require("./app/routes/todo.router.view"));
+app.use("/api", require("./app/routes/todo.router.api"));
 
 /* ------------------------------------------------------- */
 // ErrorHandler:
